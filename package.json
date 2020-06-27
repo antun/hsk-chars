@@ -1,0 +1,18 @@
+{
+  "name": "hsk-chars",
+  "version": "0.0.1",
+  "description": "Lightweight package for checking HSK levels of characters",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "hsk",
+    "chinese"
+  ],
+  "author": "Antun Karlovac <antun@antunkarlovac.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}

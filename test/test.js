@@ -53,5 +53,8 @@ describe('hskChars', function () {
     it('should get an average value of 2 for half level 1 and half level 3', function () {
       assert.equal(hskChars.getAverageHskLevel('定其主理心人一个人人'), 2);
     });
+    it('should get an average value of 6 for a string containing all level 6 characters', function () {
+      assert.equal(hskChars.getAverageHskLevel('兽帐昌铺惧盗辉扣嘛董'), 6);
+    });
   });
 });

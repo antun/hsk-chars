@@ -37,3 +37,11 @@ getMaxHskLevel(string)
 ```
 
 Returns the maximum HSK level found in string.
+
+### getAverageHskLevel
+
+```
+getAverageHskLevel(string)
+```
+
+Returns an average level based on the characters in the string.

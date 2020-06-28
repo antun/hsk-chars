@@ -45,3 +45,7 @@ getAverageHskLevel(string)
 ```
 
 Returns an average level based on the characters in the string.
+
+## Publishing
+
+Run `npm run publish:patch` (or `minor`, `major`) to publish.

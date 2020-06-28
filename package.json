@@ -1,6 +1,6 @@
 {
   "name": "hsk-chars",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lightweight package for checking HSK levels of characters",
   "main": "src/index.js",
   "scripts": {

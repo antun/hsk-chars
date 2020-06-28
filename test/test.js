@@ -46,4 +46,12 @@ describe('hskChars', function () {
       assert.equal(hskChars.getMaxHskLevel('还要一个包冤'), 6);
     });
   });
+  describe('#getAverageHskLevel()', function () {
+    it('should get an average value for all level 1 characters', function () {
+      assert.equal(hskChars.getAverageHskLevel('一个人一个人一个人一个人一个人'), 1);
+    });
+    it('should get an average value of 2 for half level 1 and half level 3', function () {
+      assert.equal(hskChars.getAverageHskLevel('定其主理心人一个人人'), 2);
+    });
+  });
 });

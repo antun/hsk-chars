@@ -2,7 +2,7 @@
   "name": "hsk-chars",
   "version": "0.0.1",
   "description": "Lightweight package for checking HSK levels of characters",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },

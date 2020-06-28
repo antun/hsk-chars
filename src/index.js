@@ -29,8 +29,18 @@ const getMaxHskLevel = (testString) => {
   return level;
 };
 
+const average = (array) => array.reduce((a, b) => a + b) / array.length;
+
+const getAverageHskLevel = (testString) => {
+  const charLevels = [];
+  for (let c in testString) {
+    charLevels.push(getMaxHskLevel(testString[c]));    
+  }
+  return average(charLevels);
+};
 
 module.exports =  {
+  getAverageHskLevel,
   getMaxHskLevel,
   isOnlyHskLevel,
   isAtOrBelowLevel

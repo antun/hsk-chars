@@ -5,6 +5,9 @@ const assert = require('assert');
 
 describe('hskChars', function () {
   describe('#isOnlyHskLevel()', function () {
+    it('should handle an empty string', function () {
+      assert.equal(hskChars.isOnlyHskLevel(1, ''), true);
+    });
     it('should match a single character in HSK1', function () {
       assert.equal(hskChars.isOnlyHskLevel(1, '个'), true);
     });
@@ -22,6 +25,9 @@ describe('hskChars', function () {
     });
   });
   describe('#isAtOrBelowLevel()', function () {
+    it('should handle an empty string', function () {
+      assert.equal(hskChars.isAtOrBelowLevel(2, ''), true);
+    });
     it('should match a single character below the level', function () {
       assert.equal(hskChars.isAtOrBelowLevel(2, '个'), true);
     });
@@ -39,6 +45,9 @@ describe('hskChars', function () {
     });
   });
   describe('#getMaxHskLevel()', function () {
+    it('should handle empty string', function () {
+      assert.equal(hskChars.getMaxHskLevel(''), 0);
+    });
     it('should find a level 2 character in a string of levels 1-2', function () {
       assert.equal(hskChars.getMaxHskLevel('还要一个'), 2);
     });
@@ -47,6 +56,9 @@ describe('hskChars', function () {
     });
   });
   describe('#getAverageHskLevel()', function () {
+    it('should handle empty string', function () {
+      assert.equal(hskChars.getAverageHskLevel(''), 0);
+    });
     it('should get an average value for all level 1 characters', function () {
       assert.equal(hskChars.getAverageHskLevel('一个人一个人一个人一个人一个人'), 1);
     });

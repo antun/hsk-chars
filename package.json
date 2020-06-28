@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "publish:patch": "npm version patch && git push && npm publish"
+    "publish:patch": "npm version patch && git push && npm publish",
+    "publish:minor": "npm version minor && git push && npm publish",
+    "publish:major": "npm version major && git push && npm publish"
   },
   "keywords": [
     "hsk",

@@ -4,7 +4,8 @@
   "description": "Lightweight package for checking HSK levels of characters",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "publish:patch": "npm version patch && git push && npm publish"
   },
   "keywords": [
     "hsk",

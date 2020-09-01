@@ -17,5 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1"
   }
 }

@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const ArgumentParser = require('argparse').ArgumentParser;
+const hskChars = require('../index');
+
+const parser = new ArgumentParser({
+  add_help:true,
+  description: 'Command line interface to hsk-chars to check and get HSK levels'
+});
+
+parser.add_argument(
+  '-l', '--level',
+  {
+    help: 'level to check, if using a method that takes an argument'
+  }
+);
+
+parser.add_argument(
+  'method',
+  {
+    choices: ['isOnlyHskLevel', 'isAtOrBelowLevel', 'getMaxHskLevel', 'getAverageHskLevel',],
+    help: 'method to use (e.g. getAverageHskLevel)'
+  }
+);
+
+const args = parser.parse_args();
+
+console.log(hskChars.getAverageHskLevel('定其主理心人一个人人'));

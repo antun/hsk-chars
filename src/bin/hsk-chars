@@ -8,21 +8,54 @@ const parser = new ArgumentParser({
   description: 'Command line interface to hsk-chars to check and get HSK levels'
 });
 
+const subparsers = parser.add_subparsers({
+  metavar: 'METHOD',
+  title: 'Methods',
+  required: true,
+  dest: 'method'
+});
+
 parser.add_argument(
+  'text',
+  {
+    help: 'Chinese text to analyze'
+  }
+);
+
+const isAtOrBelowLevelParser = subparsers.add_parser('isAtOrBelowLevel');
+isAtOrBelowLevelParser.add_argument(
   '-l', '--level',
   {
-    help: 'level to check, if using a method that takes an argument'
+    required: true,
+    help: 'level to check'
   }
 );
 
-parser.add_argument(
-  'method',
+const isOnlyHskLevelParser = subparsers.add_parser('isOnlyHskLevel');
+isOnlyHskLevelParser.add_argument(
+  '-l', '--level',
   {
-    choices: ['isOnlyHskLevel', 'isAtOrBelowLevel', 'getMaxHskLevel', 'getAverageHskLevel',],
-    help: 'method to use (e.g. getAverageHskLevel)'
+    required: true,
+    help: 'level to check'
   }
 );
 
+const getMaxHskLevelParser = subparsers.add_parser('getMaxHskLevel');
+const getAverageHskLevelParser = subparsers.add_parser('getAverageHskLevel');
 const args = parser.parse_args();
 
-console.log(hskChars.getAverageHskLevel('定其主理心人一个人人'));
+switch (args.method) {
+  case 'isOnlyHskLevel':
+    console.log(hskChars.isOnlyHskLevel(args.level, args.text));
+  break;
+  case 'isAtOrBelowLevel':
+    console.log(hskChars.isAtOrBelowLevel(args.level, args.text));
+  break;
+  case 'getMaxHskLevel':
+    console.log(hskChars.getMaxHskLevel(args.text));
+  break;
+  case 'getAverageHskLevel':
+    console.log(hskChars.getAverageHskLevel(args.text));
+  break;
+}
+

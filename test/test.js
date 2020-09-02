@@ -1,9 +1,11 @@
 const hskChars = require('../src/index');
 
+const {execSync} = require('child_process')
+
 const assert = require('assert');
 
 
-describe('hskChars', function () {
+describe('hskChars - API', function () {
   describe('#isOnlyHskLevel()', function () {
     it('should handle an empty string', function () {
       assert.equal(hskChars.isOnlyHskLevel(1, ''), true);
@@ -67,6 +69,30 @@ describe('hskChars', function () {
     });
     it('should get an average value of 6 for a string containing all level 6 characters', function () {
       assert.equal(hskChars.getAverageHskLevel('兽帐昌铺惧盗辉扣嘛董'), 6);
+    });
+  });
+});
+
+
+describe('hskChars - command line', function () {
+  describe('#isOnlyHskLevel()', function () {
+    it('should handle an empty string', function () {
+      assert.equal(execSync('src/bin/hsk-chars isOnlyHskLevel  -l 1 一个人').toString(), 'true\n');
+    });
+  });
+  describe('#isAtOrBelowLevel()', function () {
+    it('should match a string at or below the level', function () {
+      assert.equal(execSync('src/bin/hsk-chars isAtOrBelowLevel -l 2 还要一个').toString(), 'true\n');
+    });
+  });
+  describe('#getMaxHskLevel()', function () {
+    it('should catch a level 6 character in a string of levels 1-2', function () {
+      assert.equal(execSync('src/bin/hsk-chars getMaxHskLevel 还要一个包冤'), '6\n');
+    });
+  });
+  describe('#getAverageHskLevel()', function () {
+    it('should get an average value of 2 for half level 1 and half level 3', function () {
+      assert.equal(execSync('src/bin/hsk-chars getAverageHskLevel 定其主理心人一个人人'), '2\n');
     });
   });
 });

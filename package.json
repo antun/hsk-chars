@@ -9,6 +9,9 @@
     "publish:minor": "npm version minor && git push && npm publish",
     "publish:major": "npm version major && git push && npm publish"
   },
+  "bin": {
+    "hsk-chars": "./src/bin/hsk-chars"
+  },
   "keywords": [
     "hsk",
     "chinese"
@@ -17,5 +20,8 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1"
   }
 }
